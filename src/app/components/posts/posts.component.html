@@ -1,0 +1,46 @@
+<div class="container bg-light border shadow p-3 mb-5 bg-white rounded deck ">
+  <div class="row position-relative">
+    <div class="col-md-12 mb-5 ">
+      <p class="btn btn-ezassi shadow rounded topicons ">
+        <mat-icon aria-hidden="false" aria-label="lightbulb icon">lightbulb</mat-icon>
+      </p>
+      <p class="left7">
+        <mat-icon aria-hidden="false" aria-label="assignment icon">assignment</mat-icon>
+        {{title}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-12">
+      <img src="{{urlEnv}}{{image||'notuploaded.jpg'}}" class="img-fluid"/>
+    </div>
+    <div class="col-md-5 col-12">
+      {{content}}
+    </div>
+    <div class="col-md-3 col-12 small">
+      Posted by: <span class="font-weight-bold">{{postedby}}</span>
+      <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id)">
+        <mat-icon>{{star.icon}}</mat-icon>
+      </div>
+      <br/>
+      <i class="material-icons">calendar_month</i>{{createdAt}}
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-4 col-12">
+      <div class="row small text-center">
+        <div class="col-md-4 col-12">
+          <span class="font-weight-bold">Assigness: <br/></span>
+          {{assigness}}
+        </div>
+        <div class="col-md-4 col-12">
+          <span class="font-weight-bold">workflow: <i class="material-icons">edit</i> <br/></span>
+          {{workflow}}
+        </div>
+        <div class="col-md-4 col-12">
+          <span class="font-weight-bold">Review Score: <br/></span>
+          {{reviewscore}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

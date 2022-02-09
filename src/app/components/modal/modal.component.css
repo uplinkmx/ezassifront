@@ -1,0 +1,10 @@
+::ng-deep  .mdl-registro .modal-dialog{
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.modal-xl {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+

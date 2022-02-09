@@ -1,0 +1,64 @@
+.deck {
+    margin-top: 2rem;
+  }
+  .topicons {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 4%;
+    transform: translate(-50%, -50%);
+  }
+  .left7{
+    left: 7%;
+    position: absolute;
+  }
+  @media only screen and (max-width: 600px) {
+    .topicons {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 0;
+        left: 10%;
+        transform: translate(-50%, -50%);
+      }
+      .left7{
+        left: 17%;
+        position: absolute;
+      } 
+   }
+
+  .btn-ezassi {
+      background-color: #0c8fa2;
+      color:white;
+  }
+
+
+  .star {
+    margin: 0px 1px;
+    color: #a9a5a5;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .3s;
+    transform: scale(1);
+  }
+  
+
+.star mat-icon {
+    width: 20px;
+    height: 10px;
+}
+.star-gold {
+    color: orange;
+}
+.star-rating-animation:hover .star-hover {
+    color: orange;
+}
+  
+.star-rating-animation .star-hover:hover ~ .star-hover {
+    color: #ddd;
+}
+.star-rating-animation .star-hover:hover {
+    transform: scale(1.3);
+}
+  

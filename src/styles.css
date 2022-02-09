@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+  /* prebuid themes material
+   deeppurple-amber ,pink-bluegrey ,purple-green */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+    font-family: Roboto; 
+    background-color: #eeeeee;
+  }
+  .vertical-center {
+    min-height: 85%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 85vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+  }
+  i.material-icons {
+    padding: 0px 5px 0px 5px;
+    font-size: 14px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}

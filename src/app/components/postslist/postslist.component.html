@@ -1,0 +1,94 @@
+<div class="row">
+  <button type="button" id="buttonModal" class="btn btn-success col-lg-2" (click)="open(content)">Add Post</button>
+</div>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>title</th>
+    <th>content</th>
+    <th>posted by</th>
+    <th>assigness</th>
+    <th>workflow</th>
+    <th>reviewscore</th>
+    <th>image</th>
+    <th>isActive?</th>
+    <th>actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let post of posts">
+    <td>{{ post.id }}</td>
+    <td>{{ post.title }}</td>
+    <td>{{ post.content }}</td>
+    <td>{{ post.postedby }}</td>
+    <td>{{ post.assigness }}</td>
+    <td>{{ post.workflow }}</td>
+    <td>{{ post.reviewscore }}</td>
+    <td>{{ post.image }}</td>
+    <td>{{ post.isactive }}</td>
+    <td width="350px">
+      <button type="button" class="btn btn-success" (click)="edit(post)"><i class="material-icons">create</i></button>
+      <button type="button" class="btn btn-warning" (click)="deactivate(post)"><i class="material-icons">remove</i>
+      </button>
+      <button type="button" class="btn btn-primary " (click)="activate(post)"><i class="material-icons">add</i></button>
+      <button type="button" class="btn btn-danger" (click)="delete(post,content)"><i class="material-icons">clear</i>
+      </button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{textmodal}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="sendPost()" autocomplete="off">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="txtPadre">Title: </label>
+          <input type="text" class="form-control" id="txtPadre" [(ngModel)]="post.title"
+                 [ngModelOptions]="{standalone: true}" spellcheck="true" required>
+        </div>
+        <div class="form-group">
+          <label for="txtPadre">Content: </label>
+          <textarea type="text" class="form-control" id="txtPadre" [(ngModel)]="post.content"
+                    [ngModelOptions]="{standalone: true}" spellcheck="true" required> </textarea>
+        </div>
+        <div class="form-group">
+          <label for="txtPadre">posted by: </label>
+          <input type="text" class="form-control" id="txtPadre" [(ngModel)]="post.postedby"
+                 [ngModelOptions]="{standalone: true}" spellcheck="true" required>
+        </div>
+        <div class="form-group">
+          <label for="txtPadre">Assigness: </label>
+          <input type="text" class="form-control" id="txtPadre" [(ngModel)]="post.assigness"
+                 [ngModelOptions]="{standalone: true}" spellcheck="true" required>
+        </div>
+        <div class="form-group">
+          <label for="txtPadre">Workflow: </label>
+          <input type="text" class="form-control" id="txtPadre" [(ngModel)]="post.workflow"
+                 [ngModelOptions]="{standalone: true}" spellcheck="true" required>
+        </div>
+        <div class="form-group">
+          <label for="txtPadre">Review Score: </label>
+          <input type="number" class="form-control" id="txtPadre" [(ngModel)]="post.reviewscore"
+                 [ngModelOptions]="{standalone: true}" spellcheck="true" required>
+        </div>
+        <div class="form-group">
+          <label for="image">Image: </label>
+          <input type="file" class="form-control" id="imagefile" name="imagefile" (change)="addfile($event)" #imagefile>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary"> {{textbutton}}</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

@@ -1,0 +1,23 @@
+<h4 *ngIf="isLoading"><mat-spinner></mat-spinner> Cargando Información</h4>
+<div class="search-results"
+      infinite-scroll
+      [infiniteScrollDistance]="scrollDistance"
+      [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScrollDown()"
+      >
+      <div *ngFor="let postData of array">
+        <app-posts [title]="postData.title"
+                    [content]="postData.content"
+                    [postedby]="postData.postedby"
+                    [assigness]="postData.assigness"
+                    [workflow]="postData.workflow"
+                    [reviewscore]="postData.reviewscore"
+                    [image]="postData.image"
+                    [createdAt]="postData.createdAt"
+        ></app-posts>
+    </div>
+</div>
+
+
+
